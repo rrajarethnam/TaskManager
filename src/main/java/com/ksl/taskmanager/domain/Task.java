@@ -1,20 +1,26 @@
 package com.ksl.taskmanager.domain;
 
-public class Task {
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true) 
+public class Task implements Serializable{
+	private static final long serialVersionUID = -7788619177798333713L;
 	static int count = 0;
 	int id;
 	
 	int priority;
 	
-	public final int LOW = 0;
-	public final int MEDIUM = 1;
-	public final int HIGH = 2;
+	public static final int LOW = 0;
+	public static final int MEDIUM = 1;
+	public static final int HIGH = 2;
 	
 	int status;
 	
-	public final int STATUS_NEW = 0;
-	public final int STATUS_ACTIVE = 1;
-	public final int STATUS_COMPLETED = 2;
+	public static final int STATUS_NEW = 0;
+	public static final int STATUS_ACTIVE = 1;
+	public static final int STATUS_COMPLETED = 2;
 	
 	public int getId() {
 		return id;
@@ -50,10 +56,22 @@ public class Task {
 		this.name = name;
 	}
 
+	public Task(){
+		super();
+	}
+	
 	public Task(String name) {
 		super();
 		this.name = name;
 		assignId();
+	}
+	
+	public Task(String id, String priority, String status, String name){
+		super();
+		this.id = Integer.parseInt(id);
+		this.priority = Integer.parseInt(priority);
+		this.status = Integer.parseInt(status);
+		this.name = name;
 	}
 	
 	public void assignId()
