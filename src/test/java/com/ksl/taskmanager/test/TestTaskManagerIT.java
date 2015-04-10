@@ -11,7 +11,7 @@ import java.util.List;
 import com.ksl.taskmanager.domain.*;
 import com.ksl.taskmanager.web.rest.TaskManagerURIConstants;
 
-public class TestTaskManager {
+public class TestTaskManagerIT {
 	public static final String SERVER_URI = "http://localhost:8080/TaskManager";
 	
 	@Test
