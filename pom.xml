@@ -37,6 +37,7 @@
 				<version>2.2</version>
 				<configuration>
 					<url>http://localhost:8080/manager/text</url>
+					<update>true</update>
 				</configuration>
 				<executions>
 					<execution>
