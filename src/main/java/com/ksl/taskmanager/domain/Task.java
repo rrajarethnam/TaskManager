@@ -96,9 +96,9 @@ public class Task implements Serializable{
 	
 	public Task(LinkedHashMap valueMap)
 	{
-		id = Integer.parseInt((String)valueMap.get("id"));
-		priority = Integer.parseInt((String)valueMap.get("priority"));
-		status = Integer.parseInt((String)valueMap.get("status"));
+		id = ((Integer)valueMap.get("id")).intValue();
+		priority = ((Integer)valueMap.get("priority")).intValue();
+		status = ((Integer)valueMap.get("status")).intValue();
 		name = (String)valueMap.get("name");
 	}
 	
