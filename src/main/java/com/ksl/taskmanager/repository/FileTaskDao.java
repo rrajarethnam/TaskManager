@@ -14,8 +14,6 @@ public class FileTaskDao implements TaskDao {
 	public FileTaskDao()
 	{
 		tasks = new HashMap<Integer, Task>();
-		Task t = new Task("Complete Assignment");
-		tasks.put(t.getId(), t);
 	}
 
 	public Map<Integer, Task> getTasks() {

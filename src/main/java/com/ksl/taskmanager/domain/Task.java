@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.LinkedHashMap;
+
 @JsonIgnoreProperties(ignoreUnknown = true) 
 public class Task implements Serializable{
 	private static final long serialVersionUID = -7788619177798333713L;
@@ -66,12 +68,38 @@ public class Task implements Serializable{
 		assignId();
 	}
 	
+	public Task(int id, int priority, int status, String name){
+		super();
+		this.id = id;
+		this.priority = priority;
+		this.status = status;
+		this.name = name;
+	}
+	
+	
+	
 	public Task(String id, String priority, String status, String name){
 		super();
 		this.id = Integer.parseInt(id);
 		this.priority = Integer.parseInt(priority);
 		this.status = Integer.parseInt(status);
 		this.name = name;
+	}
+	
+	public boolean equivalentTo(Task t)
+	{
+		if(name.equals(t.getName()) && priority == t.getPriority() && status == t.status) {
+			return true;
+		}
+		return false;	
+	}
+	
+	public Task(LinkedHashMap valueMap)
+	{
+		id = Integer.parseInt((String)valueMap.get("id"));
+		priority = Integer.parseInt((String)valueMap.get("priority"));
+		status = Integer.parseInt((String)valueMap.get("status"));
+		name = (String)valueMap.get("name");
 	}
 	
 	public void assignId()
