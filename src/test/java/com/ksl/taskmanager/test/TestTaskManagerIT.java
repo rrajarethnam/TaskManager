@@ -31,8 +31,6 @@ public class TestTaskManagerIT {
 		
 		Task t1 = restTemplate.postForObject(SERVER_URI+TaskManagerURIConstants.CREATE_TASK, t,Task.class);
 		
-		System.out.println(t.getName());
-		System.out.println(t1.getName());
 		
 		assertTrue("Task Creation test", t.getName().equals(t1.getName()));
 		assertTrue("Task Creation test", t.getPriority() == t1.getPriority());
@@ -66,12 +64,12 @@ public class TestTaskManagerIT {
 		HashMap<String, Task> tasks= new HashMap<String, Task>();
 		
 		tasks.put("New Task", new Task(0, Task.LOW, Task.STATUS_NEW, "New Task"));
-		tasks.put("New Task", new Task(0, Task.LOW, Task.STATUS_NEW, "First Task"));
-		tasks.put("New Task", new Task(0, Task.HIGH, Task.STATUS_NEW, "Second Task"));
-		tasks.put("New Task", new Task(0, Task.MEDIUM, Task.STATUS_NEW, "Third Task"));
-		tasks.put("New Task", new Task(0, Task.MEDIUM, Task.STATUS_NEW, "Fourth Task"));
-		tasks.put("New Task", new Task(0, Task.HIGH, Task.STATUS_NEW, "Fifth Task"));
-		tasks.put("New Task", new Task(0, Task.LOW, Task.STATUS_NEW, "Sixth Task"));
+		tasks.put("First Task", new Task(0, Task.LOW, Task.STATUS_NEW, "First Task"));
+		tasks.put("Second Task", new Task(0, Task.HIGH, Task.STATUS_NEW, "Second Task"));
+		tasks.put("Third Task", new Task(0, Task.MEDIUM, Task.STATUS_NEW, "Third Task"));
+		tasks.put("Fourth Task", new Task(0, Task.MEDIUM, Task.STATUS_NEW, "Fourth Task"));
+		tasks.put("Fifth Task", new Task(0, Task.HIGH, Task.STATUS_NEW, "Fifth Task"));
+		tasks.put("Sixth Task", new Task(0, Task.LOW, Task.STATUS_NEW, "Sixth Task"));
 		
 		for(String tname : tasks.keySet())
 		{
@@ -83,6 +81,7 @@ public class TestTaskManagerIT {
 		for(LinkedHashMap map : tasks1)
 		{
 			Task t = new Task(map);
+			
 			
 			assertTrue("Get All Tasks test", tasks.containsKey(t.getName()));
 		}
